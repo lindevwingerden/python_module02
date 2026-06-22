@@ -1,19 +1,16 @@
 class GardenError(Exception):
-    # def __init__(self, message: str):
-    #     super().__init__(message)
-    #     self._message = message
-
-    # def __str__(self):
-    #     return f"{self._message}"
-    pass #gecommente stuk weghalen?
+    def __init__(self, message: str = "Unknown garden error") -> None:
+        super().__init__(message)
 
 
 class PlantError(GardenError):
-    pass
+    def __init__(self, message: str = "Unknown plant error") -> None:
+        super().__init__(message)
 
 
 class WaterError(GardenError):
-    pass
+    def __init__(self, message: str = "Unknown water error") -> None:
+        super().__init__(message)
 
 
 def garden_condition(plant_rigidity: int, water_amount: int) -> bool:

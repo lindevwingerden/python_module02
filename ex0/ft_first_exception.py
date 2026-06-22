@@ -5,12 +5,12 @@ def input_temperature(temp_str: str) -> int:
 def test_temperature() -> None:
     valid_input = "25"
     invalid_input = "abc"
-    for input in valid_input, invalid_input:
-        print(f"\nInput data is '{input}'")
+    for test_input in valid_input, invalid_input:
+        print(f"\nInput data is '{test_input}'")
         try:
-            result = input_temperature(input)
+            result = input_temperature(test_input)
             print(f"Temperature is now {result}°C")
-        except Exception as e:
+        except ValueError as e:
             print(f"Caught input_temperature error: {e}")
     print("\nAll tests completed - program didn't crash!")
 
