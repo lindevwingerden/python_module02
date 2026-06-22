@@ -1,17 +1,9 @@
-class TooCold(Exception):
-    pass
-
-
-class TooHot(Exception):
-    pass
-
-
 def input_temperature(temp_str: str) -> int:
     result = int(temp_str)
     if result < 0:
-        raise TooCold
+        raise Exception(f"{temp_str}°C is too cold for plants (min 0°C)")
     if result > 40:
-        raise TooHot
+        raise Exception(f"{temp_str}°C is too hot for plants (max 40°C)")
     return int(temp_str)
 
 
@@ -25,14 +17,8 @@ def test_temperature() -> None:
         try:
             result = input_temperature(input)
             print(f"Temperature is now {result}°C")
-        except ValueError as e:
+        except Exception as e:
             print(f"Caught input_temperature error: {e}")
-        except TooCold:
-            print(f"Caught input_temperature error: {input}°C is too cold",
-                  "for plants (min 0°C)")
-        except TooHot:
-            print(f"Caught input_temperature error: {input}°C is too hot",
-                  "for plants (max 40°C)")
     print("\nAll tests completed - program didn't crash!")
 
 
